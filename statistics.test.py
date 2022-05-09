@@ -1,6 +1,5 @@
 import unittest
 import statistics
-import EmailAlert
 
 class StatsTest(unittest.TestCase):
   def test_report_min_max_avg(self):
@@ -12,6 +11,7 @@ class StatsTest(unittest.TestCase):
 
   def test_avg_is_nan_for_empty_input(self):
     computedStats = statistics.calculateStats([])
+    EmailAlert;
     # All fields of computedStats (average, max, min) must be
     # nan (not-a-number), as defined in the math package
     # Design the assert here.
