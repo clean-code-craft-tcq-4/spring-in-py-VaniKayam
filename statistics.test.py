@@ -12,16 +12,15 @@ class StatsAlerter():
     def __init__(self,v1,v2):
         self.maxThreshold = v1
         self.list = v2
-    def checkAndAlert(self,list1):
-        listToCheck = max(list1)
+    def checkAndAlert(self,[22.6, 12.5, 3.7]):
+        listToCheck = max([22.6, 12.5, 3.7])
         if listToCheck > self.maxThreshold:
             self.list[0].emailSent = True
             self.list[1].ledGlows = True
             
 class StatsTest(unittest.TestCase):
   def test_report_min_max_avg(self):
-    inputs = [1.5, 8.9, 3.2, 4.5]
-    computedStats = statistics.calculateStats(inputs)
+    computedStats = statistics.calculateStats([1.5, 8.9, 3.2, 4.5])
     epsilon = 0.001
     self.assertAlmostEqual(computedStats["avg"], 4.525, delta=epsilon)
     self.assertAlmostEqual(computedStats["max"], 8.9, delta=epsilon)
@@ -43,8 +42,7 @@ class StatsTest(unittest.TestCase):
     ledAlert = LEDAlert()
     maxThreshold = 10.5
     statsAlerter = StatsAlerter(maxThreshold, [emailAlert, ledAlert])
-    list1 = [22.6, 12.5, 3.7]
-    statsAlerter.checkAndAlert(list1)
+    statsAlerter.checkAndAlert([22.6, 12.5, 3.7])
     self.assertTrue(emailAlert.emailSent)
     self.assertTrue(ledAlert.ledGlows)
 
