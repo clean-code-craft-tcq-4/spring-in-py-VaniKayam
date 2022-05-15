@@ -1,7 +1,6 @@
 import unittest
 import statistics
 import math
-import numpy as np
 
 class EmailAlert():
     def __init__(self):
