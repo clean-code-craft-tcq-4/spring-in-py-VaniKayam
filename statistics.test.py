@@ -43,8 +43,7 @@ class StatsTest(unittest.TestCase):
     ledAlert = LEDAlert()
     maxThreshold = 10.5
     statsAlerter = StatsAlerter(maxThreshold, [emailAlert, ledAlert])
-    check_list = [22.6, 12.5, 3.7]
-    statsAlerter.checkAndAlert(check_list)
+    statsAlerter.checkAndAlert([22.6, 12.5, 3.7])
     self.assertTrue(emailAlert.emailSent)
     self.assertTrue(ledAlert.ledGlows)
 
